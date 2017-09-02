@@ -229,6 +229,11 @@ impl Vector {
         c |= w << 30;
         self.data = c;
     }
+
+    /// Return raw internal value.
+    pub fn raw_value(&self) -> u32 {
+        self.data
+    }
 }
 
 impl fmt::Debug for Vector {
