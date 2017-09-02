@@ -5,7 +5,7 @@ authors = ["Nerijus Arlauskas <nercury@gmail.com>"]
 description = "A 32-bit vector, where 2 bits are dedicated for alpha, and 30 bits are dedicated for color. Compatible with GL_UNSIGNED_INT_2_10_10_10_REV vertex attribute format."
 repository = "https://github.com/Nercury/vec-2-10-10-10-rs"
 readme = "README.md"
-keywords = ["opengl", "vector", "cg", "GL_UNSIGNED_INT_2_10_10_10_REV"]
+keywords = ["opengl", "vector", "cg", "vertex-attribute"]
 categories = ["data-structures", "encoding", "game-engines"]
 license = "MIT OR Apache-2.0"
 maintenance = { status = "passively-maintained" }
