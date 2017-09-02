@@ -11,15 +11,19 @@ It is compatible with `GL_UNSIGNED_INT_2_10_10_10_REV` in OpenGL.
 
 ## Example
 
-```
-let value = vec_2_10_10_10::Vector::new(0.444, 0.555, 0.666, 0.2);
+```rust
+extern crate vec_2_10_10_10;
 
-assert!(approx_equal(value.x(), 0.444));
-assert!(approx_equal(value.y(), 0.555));
-assert!(approx_equal(value.z(), 0.666));
-
-// 2 bits means only possible values are 0, 0.3(3), 0.6(6) and 1.
-assert!(approx_equal(value.w(), 0.333));
+fn main() {
+    let value = vec_2_10_10_10::Vector::new(0.444, 0.555, 0.666, 0.2);
+    
+    assert!(approx_equal(value.x(), 0.444));
+    assert!(approx_equal(value.y(), 0.555));
+    assert!(approx_equal(value.z(), 0.666));
+    
+    // 2 bits means only possible values are 0, 0.3(3), 0.6(6) and 1.
+    assert!(approx_equal(value.w(), 0.333));
+}
 
 fn approx_equal(a: f32, b: f32) -> bool {
     const DELTA: f32 = 0.001;
