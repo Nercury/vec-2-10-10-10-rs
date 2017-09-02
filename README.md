@@ -1,4 +1,4 @@
-# Unsigned 2-10-10-10 vector
+# A compact, 4D, 32-bit 2-10-10-10 vector
 
 [![Version](https://img.shields.io/crates/v/vec-2-10-10-10.svg)](https://crates.io/crates/vec-2-10-10-10)
 [![Build Status](https://travis-ci.org/Nercury/vec-2-10-10-10-rs.svg?branch=master)](https://travis-ci.org/Nercury/vec-2-10-10-10-rs)

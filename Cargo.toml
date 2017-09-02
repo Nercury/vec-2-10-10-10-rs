@@ -1,6 +1,6 @@
 [package]
 name = "vec-2-10-10-10"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Nerijus Arlauskas <nercury@gmail.com>"]
 description = "A 32-bit vector, where 2 bits are dedicated for alpha, and 30 bits are dedicated for color. Compatible with GL_UNSIGNED_INT_2_10_10_10_REV vertex attribute format."
 documentation = "https://docs.rs/vec-2-10-10-10"
