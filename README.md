@@ -1,5 +1,8 @@
 # Unsigned 2-10-10-10 vector
 
+[![Version](https://img.shields.io/crates/v/vec-2-10-10-10.svg)](https://crates.io/crates/vec-2-10-10-10)
+[![Build Status](https://travis-ci.org/Nercury/vec-2-10-10-10-rs.svg?branch=master)](https://travis-ci.org/Nercury/vec-2-10-10-10-rs)
+
 This is 32-bit 4-dimensional vector, where the first dimension has 2 bits, and
 the last 3 dimensions have 10 bits each. It is useful for representing color with 
 an alpha, where the alpha does not require much precision.
