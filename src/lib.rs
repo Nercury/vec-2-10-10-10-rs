@@ -66,6 +66,30 @@ impl Vector {
         }
     }
 
+    /// Creates a vector from raw 4-byte data.
+    ///
+    /// The vector can be used to inspect such data if it was created by other means.
+    ///
+    /// ```
+    /// let other_value = *vec_2_10_10_10::Vector::new(0.444, 0.555, 0.666, 0.333).raw_value();
+    /// let value = vec_2_10_10_10::Vector::from_raw(other_value);
+    ///
+    /// assert!(approx_equal(value.x(), 0.444));
+    /// assert!(approx_equal(value.y(), 0.555));
+    /// assert!(approx_equal(value.z(), 0.666));
+    /// assert!(approx_equal(value.w(), 0.333));
+    ///
+    /// fn approx_equal(a: f32, b: f32) -> bool {
+    ///     const DELTA: f32 = 0.001;
+    ///     a > b - DELTA && a < b + DELTA
+    /// }
+    /// ```
+    pub fn from_raw(data: u32) -> Vector {
+        Vector {
+            data: data
+        }
+    }
+
     /// Get `x` value.
     pub fn x(&self) -> f32 {
         (1023 & self.data) as f32 / 1023f32
@@ -231,8 +255,8 @@ impl Vector {
     }
 
     /// Return raw internal value.
-    pub fn raw_value(&self) -> u32 {
-        self.data
+    pub fn raw_value(&self) -> &u32 {
+        &self.data
     }
 }
 
