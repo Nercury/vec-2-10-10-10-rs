@@ -52,7 +52,6 @@ pub struct Vector {
 }
 
 impl Vector {
-
     /// Creates a new Vector.
     ///
     /// First `x`, `y`, `z` values are stored in 10-bits, each.
@@ -87,11 +86,9 @@ impl Vector {
         c |= w << 30;
         c |= z << 20;
         c |= y << 10;
-        c |= x << 0;
+        c |= x;
 
-        Vector {
-            data: c
-        }
+        Vector { data: c }
     }
 
     /// Creates a vector from raw 4-byte data.
@@ -113,9 +110,7 @@ impl Vector {
     /// }
     /// ```
     pub fn from_raw(data: u32) -> Vector {
-        Vector {
-            data: data
-        }
+        Vector { data }
     }
 
     /// Get `x` value.
@@ -158,10 +153,7 @@ impl Vector {
     /// ```
     pub fn set_x(&mut self, x: f32) {
         let x = (clamp(x) * 1023f32).round() as u32;
-        let mut c: u32 =
-            (
-                3 << 30 | 1023 << 20 | 1023 << 10
-            ) & self.data;
+        let mut c: u32 = (3 << 30 | 1023 << 20 | 1023 << 10) & self.data;
         c |= x;
         self.data = c;
     }
@@ -186,10 +178,7 @@ impl Vector {
     /// ```
     pub fn set_y(&mut self, y: f32) {
         let y = (clamp(y) * 1023f32).round() as u32;
-        let mut c: u32 =
-            (
-                3 << 30 | 1023 << 20 | 1023
-            ) & self.data;
+        let mut c: u32 = (3 << 30 | 1023 << 20 | 1023) & self.data;
         c |= y << 10;
         self.data = c;
     }
@@ -214,10 +203,7 @@ impl Vector {
     /// ```
     pub fn set_z(&mut self, z: f32) {
         let z = (clamp(z) * 1023f32).round() as u32;
-        let mut c: u32 =
-            (
-                3 << 30 | 1023 << 10 | 1023
-            ) & self.data;
+        let mut c: u32 = (3 << 30 | 1023 << 10 | 1023) & self.data;
         c |= z << 20;
         self.data = c;
     }
@@ -244,13 +230,10 @@ impl Vector {
         let x = (clamp(x) * 1023f32).round() as u32;
         let y = (clamp(y) * 1023f32).round() as u32;
         let z = (clamp(z) * 1023f32).round() as u32;
-        let mut c: u32 =
-            (
-                3 << 30
-            ) & self.data;
+        let mut c: u32 = (3 << 30) & self.data;
         c |= z << 20;
         c |= y << 10;
-        c |= x << 0;
+        c |= x;
         self.data = c;
     }
 
@@ -274,10 +257,7 @@ impl Vector {
     /// ```
     pub fn set_w(&mut self, w: f32) {
         let w = (clamp(w) * 3f32).round() as u32;
-        let mut c: u32 =
-            (
-                1023 << 20 | 1023 << 10 | 1023
-            ) & self.data;
+        let mut c: u32 = (1023 << 20 | 1023 << 10 | 1023) & self.data;
         c |= w << 30;
         self.data = c;
     }
@@ -309,3 +289,4 @@ fn clamp(c: f32) -> f32 {
     }
     c
 }
+
